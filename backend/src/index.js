@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const carRoutes = require('./routes/carRoutes');
 const postRoutes = require('./routes/postRoutes');
-const carController = require('./controllers/carController');
 
 const app = express();
 

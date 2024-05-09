@@ -1,5 +1,4 @@
 const Car = require('../models/Car');
-const e = require("express");
 
 const getAllCars = async (req, res) => {
     try {
