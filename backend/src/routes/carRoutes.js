@@ -6,7 +6,7 @@ const { getAllCars, createCar, getCar, updateCar, deleteCar } = require('../cont
 router.get('/', getAllCars);
 router.post('/', createCar);
 router.get('/:id', getCar);
-router.patch('/:id', updateCar);
+router.put('/:id', updateCar);
 router.delete('/:id', deleteCar);
 
 module.exports = router;
