@@ -26,16 +26,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/cars', carRoutes);
-app.use('/api/cars/:id/', postRoutes);
-
-// app.get('/test', async (req, res) => {
-//     try {
-//         const cars = await req.db.collection('cars').find().toArray();
-//         res.json(cars);
-//     } catch (err) {
-//         res.status(500).json({error: err});
-//     }
-// })
+app.use('/api/posts', postRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
