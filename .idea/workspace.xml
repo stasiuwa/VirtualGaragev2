@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="cleaning up warnings">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="fixed updateCar function, added CRUD API for postController.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Car.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/models/Post.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/postRoutes.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +121,8 @@
       <workItem from="1715206310567" duration="483000" />
       <workItem from="1715206799475" duration="287000" />
       <workItem from="1715207391637" duration="125000" />
-      <workItem from="1715283098642" duration="18793000" />
+      <workItem from="1715283098642" duration="19177000" />
+      <workItem from="1715542783605" duration="7012000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -143,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715295935773</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed updateCar function, added CRUD API for postController.js">
+      <option name="closed" value="true" />
+      <created>1715303351605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715303351605</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +231,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="made API with CRUD for carController.js" />
     <MESSAGE value="cleaning up warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning up warnings" />
+    <MESSAGE value="fixed updateCar function, added CRUD API for postController.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed updateCar function, added CRUD API for postController.js" />
   </component>
 </project>

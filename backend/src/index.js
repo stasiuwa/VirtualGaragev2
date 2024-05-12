@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const carRoutes = require('./routes/carRoutes');
-const postRoutes = require('./routes/postRoutes');
 
 const app = express();
 
@@ -26,7 +25,6 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/cars', carRoutes);
-app.use('/api/posts', postRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
