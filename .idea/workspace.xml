@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="extended validation rules for Car and Post entities">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars.">
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/Car.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/Post.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Car.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +123,7 @@
       <workItem from="1715207391637" duration="125000" />
       <workItem from="1715283098642" duration="19177000" />
       <workItem from="1715542783605" duration="9533000" />
-      <workItem from="1715590301706" duration="11206000" />
+      <workItem from="1715590301706" duration="18108000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -187,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715598415839</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars.">
+      <option name="closed" value="true" />
+      <created>1715601872599</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715601872599</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +277,7 @@
     <MESSAGE value="added server-side mongoose model schema simple validation" />
     <MESSAGE value="added User (model, routes and controller) and JWT" />
     <MESSAGE value="extended validation rules for Car and Post entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="extended validation rules for Car and Post entities" />
+    <MESSAGE value="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars." />
+    <option name="LAST_COMMIT_MESSAGE" value="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars." />
   </component>
 </project>
