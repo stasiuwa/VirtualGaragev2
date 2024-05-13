@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
+const {Schema} = require("mongoose");
 
 const post = new mongoose.Schema({
+    // carID: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Car',
+    //     required: true
+    // },
     type: {
         type: String,
         maxLength: 32,
@@ -27,6 +33,11 @@ const post = new mongoose.Schema({
 });
 
 const carSchema = new mongoose.Schema({
+    userID: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     brand: {
         type: String,
         maxLength: 32,

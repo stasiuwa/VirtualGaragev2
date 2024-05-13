@@ -30,7 +30,7 @@ router.use(loginRequired);
 const { getAllCars, createCar, getCar, updateCar, deleteCar } = require('../controllers/carController')
 
 router.get('/', getAllCars, );
-router.post('/', carValidationRules, createCar);
+router.post('/', createCar);
 router.get('/:id', getCar);
 router.put('/:id', carValidationRules, updateCar);
 router.delete('/:id', deleteCar);
