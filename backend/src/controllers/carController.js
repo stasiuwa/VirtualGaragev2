@@ -1,5 +1,6 @@
 const Car = require('../models/Car');
 
+
 const getAllCars = async (req, res) => {
     try {
         const cars = await Car.find({}, {}, null);
@@ -9,6 +10,7 @@ const getAllCars = async (req, res) => {
         res.status(500).json({error: err, function: "carController.getAllCars"});
     }
 }
+
 const createCar = async (req, res) => {
     try {
         const { brand, model, car_year, engine, mileage } = req.body;

@@ -53,9 +53,6 @@ const deletePost = async (req, res) => {
         const postId = req.params.postId;
 
         const postIndex = car.posts.findIndex(post => post.id === postId);
-        if ( postIndex === -1 ){
-            return res.status(404).send("Post not found");
-        }
 
         car.posts.splice(postIndex, 1);
         await car.save();

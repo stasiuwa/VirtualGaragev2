@@ -1,7 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const carRoutes = require('./routes/routes');
+const carRoutes = require('./routes/carRoutes');
+const userRoutes = require('./routes/userRoutes');
+const jsonwebtoken = require('jsonwebtoken');
+
+const jwtKey = "kluczTestowy123";
 
 const app = express();
 
@@ -23,8 +27,26 @@ app.use((req, res, next) => {
     req.db = mongoose.connection;
     next();
 })
+/**
+ * Middleware do uwierzytelniania
+ */
+app.use(function(req, res, next) {
+    if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+        jsonwebtoken.verify(req.headers.authorization.split(' ')[1], jwtKey, function(err, decode) {
+            if (err) req.user = undefined;
+            req.user = decode;
+            next();
+        });
+    } else {
+        req.user = undefined;
+        next();
+    }
+});
 
 app.use('/api/cars', carRoutes);
+app.use('/users', userRoutes);
+
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

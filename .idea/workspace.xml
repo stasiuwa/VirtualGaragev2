@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="changed Post and Car entities to one-to-many relation, updated CRUD and API functions">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="added server-side mongoose model schema simple validation">
+      <change afterPath="$PROJECT_DIR$/backend/src/controllers/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/userRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/models/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Car.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +125,8 @@
       <workItem from="1715206799475" duration="287000" />
       <workItem from="1715207391637" duration="125000" />
       <workItem from="1715283098642" duration="19177000" />
-      <workItem from="1715542783605" duration="8520000" />
+      <workItem from="1715542783605" duration="9533000" />
+      <workItem from="1715590301706" duration="6073000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -160,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715550775353</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added server-side mongoose model schema simple validation">
+      <option name="closed" value="true" />
+      <created>1715552356956</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715552356956</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,6 +253,7 @@
     <MESSAGE value="cleaning up warnings" />
     <MESSAGE value="fixed updateCar function, added CRUD API for postController.js" />
     <MESSAGE value="changed Post and Car entities to one-to-many relation, updated CRUD and API functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Post and Car entities to one-to-many relation, updated CRUD and API functions" />
+    <MESSAGE value="added server-side mongoose model schema simple validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added server-side mongoose model schema simple validation" />
   </component>
 </project>
