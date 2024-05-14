@@ -3,9 +3,10 @@ const { validationResult } = require('express-validator');
 
 const getAllCars = async (req, res) => {
     try {
+        console.log(req.user);
         const userID = req.user._id;
         const cars = await Car.find({
-            userID: userID
+             userID: userID
         }, {}, null);
         if (cars === null) return res.status(404).json({ message: "Cars not found" });
         res.status(200).json(cars);

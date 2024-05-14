@@ -4,6 +4,7 @@ const cors = require('cors');
 const carRoutes = require('./routes/carRoutes');
 const userRoutes = require('./routes/userRoutes');
 const jsonwebtoken = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 const jwtKey = "kluczTestowy123";
 
@@ -12,8 +13,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const ATLAS_URI = 'mongodb://localhost:27017/garage';
 
+//Ciasteczka
+app.use(cookieParser());
+
 //Middleware
-app.use(cors({ origin: "http://localhost:8080" }));
+app.use(cors({ origin: "http://localhost:8080" , credentials: true}));
 app.use(express.json());
 
 //Database connection
@@ -31,21 +35,20 @@ app.use((req, res, next) => {
 /**
  * Middleware do uwierzytelniania
  */
-app.use(function(req, res, next) {
-    if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
-        jsonwebtoken.verify(req.headers.authorization.split(' ')[1], jwtKey, function(err, decode) {
-            if (err) req.user = undefined;
-            req.user = decode;
-            next();
-        });
-    } else {
-        req.user = undefined;
-        next();
-    }
-});
-
-app.use('/api/cars', carRoutes);
 app.use('/api/users', userRoutes);
+app.use(function(req, res, next) {
+    const token = req.cookies.access_token;
+    if (!token) {
+        return res.status(401).json({ message: 'Access Denied' });
+    }
+    jsonwebtoken.verify(token, jwtKey, (err, decodedToken) => {
+        if (err) {return res.status(401).json({ message: 'Unable to verify token!' }); }
+        req.user = decodedToken;
+        next();
+    })
+});
+app.use('/api/cars', carRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

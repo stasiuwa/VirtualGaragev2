@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import InputField from '../Form/InputField';
 import {loginUser} from "../../api/services/User";
-import { useAuth } from "../../api/auth";
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
@@ -10,7 +9,6 @@ const LoginForm = () => {
         password: ''
     });
 
-    const { authToken, setAuthToken } = useAuth();
     const navigate = useNavigate();
 
     const handleChange = e => {
@@ -29,9 +27,8 @@ const LoginForm = () => {
             const response = await loginUser(formData);
             const data = response.data;
 
-            // Przechowuje tokeny JWT w Context
+            // Przechowuje tokeny JWT w localStorage
             localStorage.setItem("token", data.token);
-            await setAuthToken(data.token);
 
             // Ustawienie tokenu w Axios dla przyszłych żądań
             // api.defaults.headers.common['Authorization'] = `JWT ${token}`;

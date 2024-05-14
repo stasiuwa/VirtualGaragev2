@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const jsonwebtoken = require("jsonwebtoken");
 
 const jwtKey = "kluczTestowy123";
 
@@ -22,28 +23,33 @@ const login = async (req, res) => {
             return res.status(401).send({ message: "Authentication failed. Invalid user or password." });
         }
 
-        return res.json({
-            token: jwt.sign({
+        const token = jwt.sign({
                 email: user.email,
                 username: user.username,
                 _id: user._id,
-            }, jwtKey)
-        });
+            }, jwtKey, { expiresIn: '1h' });
+
+        // Dodanie tokenu do cookies
+        return res.cookie("access_token", token, { httpOnly: true, secure: true }).status(200).json({ message: "You are logged in!"});
     } catch (err) {
         return res.status(500).send({ error: err.message, message: "Internal server error." });
     }
 }
-const loginRequired =  (req, res, next) => {
-    try {
-        if (req.user) {
-            next();
-        } else {
-            return res.status(401).json({ message: 'Unauthorized user!' });
-        }
-    } catch (err) {
-        next(err);
-    }
-}
+// const loginRequired =  (req, res, next) => {
+//     try {
+//         const token = req.cookies.access_token;
+//         if (!token) {
+//             return res.status(401).json({ message: 'Access Denied' });
+//         }
+//         jsonwebtoken.verify(token, jwtKey, (err, decodedToken) => {
+//             if (err) {return res.status(401).json({ message: 'Unable to verify token!' }); }
+//             req.user = decodedToken;
+//             next();
+//         })
+//     } catch (err) {
+//         next(err);
+//     }
+// }
 const profile = (req, res, next) => {
     try {
         if (req.user) {
@@ -60,6 +66,6 @@ const profile = (req, res, next) => {
 module.exports = {
     register,
     login,
-    loginRequired,
+    // loginRequired,
     profile
 }
