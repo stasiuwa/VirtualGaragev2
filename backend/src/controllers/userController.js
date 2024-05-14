@@ -5,7 +5,11 @@ const User = require('../models/user');
 const {JWT_KEY} = require('../middleware/loginRequired')
 
 const register = async (req, res) => {
-    const newUser = new User(req.body);
+    const newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    });
     newUser.password = bcrypt.hashSync(req.body.password, 10);
     try {
         await newUser.save()
@@ -37,31 +41,17 @@ const login = async (req, res) => {
 const logout = async (req, res) => {
     return res.clearCookie("access_token").status(200).json({ message: "You are logged out!" });
 };
-// const loginRequired =  (req, res, next) => {
-//     try {
-//         const token = req.cookies.access_token;
-//         if (!token) {
-//             return res.status(401).json({ message: 'Access Denied' });
-//         }
-//         jsonwebtoken.verify(token, jwtKey, (err, decodedToken) => {
-//             if (err) {return res.status(401).json({ message: 'Unable to verify token!' }); }
-//             req.user = decodedToken;
-//             next();
-//         })
-//     } catch (err) {
-//         next(err);
-//     }
-// }
-const profile = (req, res, next) => {
+
+const profile = async (req, res) => {
     try {
         if (req.user) {
-            res.send(req.user);
-            next();
+            const user = await User.findById(req.user._id, {}, null);
+            res.status(200).json(user);
         } else {
             return res.status(401).json({ message: 'Invalid token!' });
         }
     } catch (err) {
-        next(err);
+        return res.status(500).json({ error: "Internal server error! userController/profile()"});
     }
 };
 

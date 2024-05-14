@@ -50,6 +50,7 @@ const LoginForm = () => {
                     onChange={handleChange}
                     placeholder="wprowadź hasło..."
                 />
+                <button type="reset">Wyczyść</button>
                 <button type="submit">Login</button>
             </form>
         </div>

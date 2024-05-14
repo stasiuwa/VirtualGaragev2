@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LoginForm from "./components/User/LoginForm";
-import RegisterForm from "./components/User/LoginForm";
+import RegisterForm from "./components/User/RegisterForm";
 import GaragePage from "./pages/GaragePage";
 
 export const Routing = () => {
