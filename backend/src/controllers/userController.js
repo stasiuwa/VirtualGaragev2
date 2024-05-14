@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
-const jsonwebtoken = require("jsonwebtoken");
 
-const jwtKey = "kluczTestowy123";
+const {JWT_KEY} = require('../middleware/loginRequired')
 
 const register = async (req, res) => {
     const newUser = new User(req.body);
@@ -27,7 +26,7 @@ const login = async (req, res) => {
                 email: user.email,
                 username: user.username,
                 _id: user._id,
-            }, jwtKey, { expiresIn: '1h' });
+            }, JWT_KEY, { expiresIn: '1h' });
 
         // Dodanie tokenu do cookies
         return res.cookie("access_token", token, { httpOnly: true, secure: true }).status(200).json({ message: "You are logged in!"});

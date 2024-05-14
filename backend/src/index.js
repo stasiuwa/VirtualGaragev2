@@ -3,10 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const carRoutes = require('./routes/carRoutes');
 const userRoutes = require('./routes/userRoutes');
-const jsonwebtoken = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-
-const jwtKey = "kluczTestowy123";
 
 const app = express();
 

@@ -15,4 +15,7 @@ function loginRequired(req, res, next) {
         next();
     })
 }
-module.exports = loginRequired;
+module.exports = {
+    loginRequired,
+    JWT_KEY
+}

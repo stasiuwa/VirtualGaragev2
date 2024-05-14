@@ -23,7 +23,7 @@ const postValidationRules = () => {
 }
 
 
-const loginRequired  = require('../middleware/loginRequired');
+const {loginRequired}  = require('../middleware/loginRequired');
 
 router.use(loginRequired);
 
