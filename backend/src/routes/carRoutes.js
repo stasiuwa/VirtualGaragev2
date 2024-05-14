@@ -38,7 +38,7 @@ router.delete('/:id', deleteCar);
 const { getAllPosts, createPost, getPost, updatePost, deletePost } = require("../controllers/postController");
 
 router.get('/:id/posts', getAllPosts);
-router.post('/:id/posts', postValidationRules, createPost);
+router.post('/:id/posts', createPost);
 router.get('/:id/posts/:postId', getPost);
 router.put('/:id/posts/:postId', postValidationRules, updatePost);
 router.delete('/:id/posts/:postId', deletePost);
