@@ -35,6 +35,9 @@ const login = async (req, res) => {
         return res.status(500).send({ error: err.message, message: "Internal server error." });
     }
 }
+const logout = async (req, res) => {
+    return res.clearCookie("access_token").status(200).json({ message: "You are logged out!" });
+};
 // const loginRequired =  (req, res, next) => {
 //     try {
 //         const token = req.cookies.access_token;
@@ -66,6 +69,7 @@ const profile = (req, res, next) => {
 module.exports = {
     register,
     login,
+    logout,
     // loginRequired,
     profile
 }

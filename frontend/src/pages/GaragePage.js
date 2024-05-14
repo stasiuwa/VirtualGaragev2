@@ -17,6 +17,11 @@ const GaragePage = () => {
                     <CarList/>
                 </div>
             </div>
+            <div>
+                <button>
+
+                </button>
+            </div>
         </div>
     )
 }

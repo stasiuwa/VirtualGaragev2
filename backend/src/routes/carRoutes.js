@@ -23,9 +23,9 @@ const postValidationRules = () => {
 }
 
 
-const { loginRequired } = require('../controllers/userController');
+const loginRequired  = require('../middleware/loginRequired');
 
-// router.use(loginRequired);
+router.use(loginRequired);
 
 const { getAllCars, createCar, getCar, updateCar, deleteCar } = require('../controllers/carController')
 

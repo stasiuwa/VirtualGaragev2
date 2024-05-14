@@ -32,21 +32,7 @@ app.use((req, res, next) => {
     next();
 });
 
-/**
- * Middleware do uwierzytelniania
- */
 app.use('/api/users', userRoutes);
-app.use(function(req, res, next) {
-    const token = req.cookies.access_token;
-    if (!token) {
-        return res.status(401).json({ message: 'Access Denied' });
-    }
-    jsonwebtoken.verify(token, jwtKey, (err, decodedToken) => {
-        if (err) {return res.status(401).json({ message: 'Unable to verify token!' }); }
-        req.user = decodedToken;
-        next();
-    })
-});
 app.use('/api/cars', carRoutes);
 
 

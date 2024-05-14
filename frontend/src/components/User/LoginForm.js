@@ -17,25 +17,15 @@ const LoginForm = () => {
             ...prevState,
             [name]: value
         }));
-        localStorage.setItem(name, value);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Logika obsługi logowania
         try {
-            const response = await loginUser(formData);
-            const data = response.data;
-
-            // Przechowuje tokeny JWT w localStorage
-            localStorage.setItem("token", data.token);
-
-            // Ustawienie tokenu w Axios dla przyszłych żądań
-            // api.defaults.headers.common['Authorization'] = `JWT ${token}`;
-
+            await loginUser(formData);
             //Logika po zalogowaniu - redirect
             navigate("/vGarage");
-
         } catch (error) {
             console.log(error.response ? error.response.data : error.message);
         }

@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="authToken in React Context - not working properly.">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="JWT tokens have been transfered to cookies. Initial setup for login forms and main page has been made.">
+      <change afterPath="$PROJECT_DIR$/backend/src/middleware/loginRequired.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/userRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Routing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/services/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/Car.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/services/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GaragePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/GaragePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +126,7 @@
       <workItem from="1715283098642" duration="19177000" />
       <workItem from="1715542783605" duration="9533000" />
       <workItem from="1715590301706" duration="18239000" />
-      <workItem from="1715680245631" duration="18954000" />
+      <workItem from="1715680245631" duration="20927000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -221,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715709692939</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="JWT tokens have been transfered to cookies. Initial setup for login forms and main page has been made.">
+      <option name="closed" value="true" />
+      <created>1715713075320</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715713075320</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +307,7 @@
     <MESSAGE value="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars." />
     <MESSAGE value="made project structure for React frontend, first apis controllers for React with axios" />
     <MESSAGE value="authToken in React Context - not working properly." />
-    <option name="LAST_COMMIT_MESSAGE" value="authToken in React Context - not working properly." />
+    <MESSAGE value="JWT tokens have been transfered to cookies. Initial setup for login forms and main page has been made." />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT tokens have been transfered to cookies. Initial setup for login forms and main page has been made." />
   </component>
 </project>
