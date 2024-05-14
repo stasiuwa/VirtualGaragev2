@@ -4,15 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/Car.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/Post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/services/User.js" afterDir="false" />
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="made project structure for React frontend, first apis controllers for React with axios">
+      <change afterPath="$PROJECT_DIR$/frontend/src/Routing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Form/InputField.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/User/RegisterForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/GaragePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/userRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/userRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/services/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/Car.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/services/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +135,8 @@
       <workItem from="1715207391637" duration="125000" />
       <workItem from="1715283098642" duration="19177000" />
       <workItem from="1715542783605" duration="9533000" />
-      <workItem from="1715590301706" duration="18108000" />
+      <workItem from="1715590301706" duration="18239000" />
+      <workItem from="1715680245631" duration="15618000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -197,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715601872599</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="made project structure for React frontend, first apis controllers for React with axios">
+      <option name="closed" value="true" />
+      <created>1715628959648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715628959648</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +299,7 @@
     <MESSAGE value="added User (model, routes and controller) and JWT" />
     <MESSAGE value="extended validation rules for Car and Post entities" />
     <MESSAGE value="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars." />
-    <option name="LAST_COMMIT_MESSAGE" value="added relation one-to-many for User and Car with JWT authorization for User's CRUD operations on &quot;own&quot; cars." />
+    <MESSAGE value="made project structure for React frontend, first apis controllers for React with axios" />
+    <option name="LAST_COMMIT_MESSAGE" value="made project structure for React frontend, first apis controllers for React with axios" />
   </component>
 </project>

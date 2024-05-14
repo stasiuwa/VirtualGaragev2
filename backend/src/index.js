@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/api/cars', carRoutes);
-app.use('/users', userRoutes);
+app.use('/api/users', userRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
