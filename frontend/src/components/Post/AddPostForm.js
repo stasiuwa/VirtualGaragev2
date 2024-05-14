@@ -46,6 +46,9 @@ const AddPostForm = () => {
 
     return (
         <div>
+            <h3>
+                Dodaj wpis do auta
+            </h3>
             <Navbar/>
             <form onSubmit={handleSubmit}>
                 <InputField

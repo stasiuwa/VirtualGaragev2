@@ -5,7 +5,6 @@ const CarList = (props) => {
     const [error, setError] = useState(null);
     return (
         <div>
-            <h1>Lista Samochodów</h1>
             {error && <p>{error}</p>}
             <ol>
                 {props.cars.map((car, carIndex) => (

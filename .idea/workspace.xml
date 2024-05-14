@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="Added list of posts for each car printed in CarList.js component">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Post/PostDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" afterDir="false" />
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="Added pages for Car and Post create Form, display of Entities divided into two pages ( Table and List ), added routes and Navbar.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Routing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GaragePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +125,7 @@
       <workItem from="1715283098642" duration="19177000" />
       <workItem from="1715542783605" duration="9533000" />
       <workItem from="1715590301706" duration="18239000" />
-      <workItem from="1715680245631" duration="32609000" />
+      <workItem from="1715680245631" duration="33919000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -271,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715723249759</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added pages for Car and Post create Form, display of Entities divided into two pages ( Table and List ), added routes and Navbar.js">
+      <option name="closed" value="true" />
+      <created>1715727560453</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715727560453</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +360,7 @@
     <MESSAGE value="Fetching User and list of his Cars in GaragePage.js component" />
     <MESSAGE value="Fixed createPost CRUD function" />
     <MESSAGE value="Added list of posts for each car printed in CarList.js component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added list of posts for each car printed in CarList.js component" />
+    <MESSAGE value="Added pages for Car and Post create Form, display of Entities divided into two pages ( Table and List ), added routes and Navbar.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added pages for Car and Post create Form, display of Entities divided into two pages ( Table and List ), added routes and Navbar.js" />
   </component>
 </project>

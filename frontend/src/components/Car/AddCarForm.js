@@ -44,6 +44,9 @@ const AddCarForm = () => {
 
     return (
         <div>
+            <h3>
+                Dodaj auto do garażu
+            </h3>
             <Navbar/>
             <form onSubmit={handleSubmit}>
                 <InputField

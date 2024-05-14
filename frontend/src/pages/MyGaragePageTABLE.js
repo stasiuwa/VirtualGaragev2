@@ -3,37 +3,25 @@ import {getAllCars} from "../api/services/Car";
 import Navbar from "../components/Navbar";
 import CarTable from "../components/Car/CarTable";
 import PostTable from "../components/Post/PostTable";
+import {useLocation} from "react-router-dom";
 
 const MyGaragePageLIST = () => {
     const [cars, setCars] = useState([]);
-    // const [user, setUser] = useState({});
+    const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
+    // odbiór wartości przekazanych od linków w navbar
+    const location = useLocation();
     useEffect(() => {
-        const fetchCars = async () => {
-            try {
-                const response = await getAllCars();
-                setCars(response.data);
-            } catch (error) {
-                setError(error.response ? error.response.data : error.message);
-            }
-        };
-        // const fetchUser = async () => {
-        //     try {
-        //         const response = await getUser();
-        //         setUser(response.data);
-        //     } catch (error) {
-        //         setError(error.response ? error.response.data : error.message);
-        //     }
-        // }
-        fetchCars;
-
+        setCars(location.state?.cars || []);
+        setUser(location.state?.user || []);
     }, []);
+
     return (
         <div>
             <div>
                 <h3>
-                    Moje samochody
+                    Moje samochody TABELA
                 </h3>
                 <div>
                     <Navbar/>
