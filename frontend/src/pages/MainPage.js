@@ -1,24 +1,14 @@
 import React, {useEffect, useState} from "react";
-import CarList from "../components/Car/CarList";
 import {getUser, logoutUser} from "../api/services/User";
-import {useNavigate} from "react-router-dom";
-import {getAllCars} from "../api/services/Car";
+import {Navigate, redirect, useNavigate} from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const GaragePage = () => {
     const navigate = useNavigate();
-    const [cars, setCars] = useState([]);
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchCars = async () => {
-            try {
-                const response = await getAllCars();
-                setCars(response.data);
-            } catch (error) {
-                setError(error.response ? error.response.data : error.message);
-            }
-        };
         const fetchUser = async () => {
             try {
                 const response = await getUser();
@@ -27,9 +17,12 @@ const GaragePage = () => {
                 setError(error.response ? error.response.data : error.message);
             }
         }
-        fetchUser().then(fetchCars);
+        fetchUser();
 
     }, []);
+    const navigateButton = (destination) => {
+        navigate(destination, user);
+    }
     const logout = async () => {
         try {
             await logoutUser();
@@ -46,20 +39,12 @@ const GaragePage = () => {
                 <h3>
                     witaj {user.username}
                 </h3>
+                {/*
+                Tutaj bedzie strona tytułowa, navbar do poskakania z ewentualnie innym stylem i jakis krótki opis na dole strony.
+                */}
                 <div>
-                    <button/>
-                    <button/>
-                    <button/>
-                    <button/>
+                    <Navbar/>
                 </div>
-                <div>
-                    <CarList cars={cars}/>
-                </div>
-            </div>
-            <div>
-                <button onClick={logout}>
-                    Wyloguj się
-                </button>
             </div>
         </div>
     )
