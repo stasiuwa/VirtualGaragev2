@@ -5,7 +5,9 @@ const PostTable = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(15);
 
-    const allPosts = props.data.cars.flatMap((car) => car.posts);
+    const allPosts = props.data.cars.flatMap((car) =>
+        car.posts.map((post) => ({ ...post, carID: car._id }))
+    );
     const indexOfFirstPost = (currentPage - 1) * perPage;
     const indexOfLastPost = indexOfFirstPost + perPage;
     const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
