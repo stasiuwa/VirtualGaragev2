@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import CarList from "../components/Car/CarList";
-import {getUser, logoutUser} from "../api/services/User";
-import {getAllCars} from "../api/services/Car";
 import Navbar from "../components/Navbar";
 import {useLocation} from "react-router-dom";
 
@@ -13,15 +11,19 @@ const MyGaragePageLIST = () => {
     // odbiór wartości przekazanych od linków w navbar
     const location = useLocation();
     useEffect(() => {
-        setCars(location.state?.cars || []);
-        setUser(location.state?.user || []);
+        try {
+            setCars(location.state?.cars || []);
+            setUser(location.state?.user || []);
+        } catch (error) {
+            setError(error.response ? error.response.data : error.message);
+        }
     }, []);
 
     return (
         <div>
             <div>
                 <h3>
-                    Moje samochody LISTA
+                    Moje auta LISTA
                 </h3>
                 <div>
                     <Navbar/>
@@ -34,7 +36,7 @@ const MyGaragePageLIST = () => {
                     <CarList cars={cars}/>
                 </div>
             </div>
-
+            {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     )
 }

@@ -14,11 +14,12 @@ const getAllPosts = async (req, res) => {
 }
 const createPost = async (req, res) => {
     try {
-        const { type, date, mileage, details, price } = req.body;
-        const carID = req.params.id;
+        console.log("CREATEPOST REQ.BODY: " + req.body.carID + "req.params.id = " + req.params.carID);
+        const { carID, type, date, mileage, details, price } = req.body;
         // walidacja
         const errors = validationResult(req);
         if (!errors.isEmpty()) return res.status(400).json({errors: errors.array()});
+
         const car = await Car.findById(carID, {}, null);
         if (car === null) return res.status(404).send({message: "Car not found!"});
 

@@ -68,12 +68,13 @@ const Navbar = () => {
             <button onClick={() => goToPage('/vGarage/myCars/addCar')}>
                 Dodaj auto
             </button>
-            <button onClick={() => goToPage('/vGarage/myCars/:carID/posts/addPost')}>
+            <button onClick={() => goToPageWithParams('/vGarage/myCars/:carID/posts/addPost')}>
                 Dodaj wpis
             </button>
             <button onClick={logout}>
                 Wyloguj się
             </button>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     )
 }

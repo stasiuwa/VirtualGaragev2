@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const CarList = (props) => {
-    const [error, setError] = useState(null);
+    useEffect(() => {
+    }, []);
     return (
         <div>
-            {error && <p>{error}</p>}
             <ol>
-                {props.cars.map((car, carIndex) => (
+                {props.cars.map((car) => (
                     <li key={car._id}>
                         <Link to={`/vGarage/myCars/${car._id}`}>
                             {car.brand} {car.model} {car.car_year} {car.engine} {car.mileage}

@@ -21,7 +21,7 @@ const MyGaragePageLIST = () => {
         <div>
             <div>
                 <h3>
-                    Moje samochody TABELA
+                    Moje auta TABELA
                 </h3>
                 <div>
                     <Navbar/>
