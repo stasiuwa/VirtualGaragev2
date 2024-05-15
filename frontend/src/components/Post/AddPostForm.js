@@ -1,13 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {useLocation, useNavigate} from 'react-router-dom';
+import React, {useState} from "react";
 import InputField from "../Form/InputField";
 import {createPost} from "../../api/services/Post";
 import Navbar from "../Navbar";
+import {useData} from "../../contexts/DataContext";
 
 const AddPostForm = () => {
-    const [cars, setCars] = useState([]);
-    // const [user, setUser] = useState({});
-    const [error, setError] = useState(null);
 
     const [formData, setFormData] = useState({
         carID: '',
@@ -17,19 +14,7 @@ const AddPostForm = () => {
         details: '',
         price: ''
     });
-    const navigate = useNavigate();
-
-    // odbiór wartości przekazanych od linków w navbar
-    const location = useLocation();
-    useEffect(() => {
-        try {
-            setCars(location.state?.cars || []);
-            // setUser(location.state?.user || []);
-        } catch (error) {
-            setError(error.response ? error.response.data : error.message);
-        }
-    }, []);
-
+    const data = useData();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -44,10 +29,10 @@ const AddPostForm = () => {
         // logika po przesłaniu
         try {
             console.log(formData.carID,formData);
+            // data.addPostToCar(formData);
             await createPost(formData.carID, formData);
-            alert("Dodano wpis do auta");
-            // navigate("/vGarage");
-            console.log(formData);
+            await data.loadData();
+            alert("Dodano wpis do auta!");
         } catch (error) {
             console.log(error.response ? error.response.data : error.message);
         } finally {
@@ -69,7 +54,7 @@ const AddPostForm = () => {
                 Dodaj wpis do auta
             </h3>
             <Navbar/>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {data.error && <p style={{ color: 'red' }}>{data.error}</p>}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="carID">Wybierz samochód</label>
@@ -81,7 +66,7 @@ const AddPostForm = () => {
                         onChange={handleChange}
                     >
                         <option value="">-- Wybierz samochód --</option>
-                        {cars.map((car) => (
+                        {data.cars.map((car) => (
                             <option key={car._id} value={car._id}>
                                 {car.brand} {car.model} ({car.car_year})
                             </option>

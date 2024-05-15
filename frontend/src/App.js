@@ -1,11 +1,14 @@
 import './App.css';
-import Routing from "./Routing";
+import Routing from "./routes/Routing";
+import {DataProvider} from "./contexts/DataContext";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
     return (
         <div>
-            <Routing/>
+            <DataProvider>
+                <Routing/>
+            </DataProvider>
         </div>
     )
 }

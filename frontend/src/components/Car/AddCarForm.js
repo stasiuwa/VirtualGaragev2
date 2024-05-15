@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import InputField from '../Form/InputField';
 import {createCar} from "../../api/services/Car";
 import Navbar from "../Navbar";
+import {useData} from "../../contexts/DataContext";
 
 const AddCarForm = () => {
     const [formData, setFormData] = useState({
@@ -12,8 +12,7 @@ const AddCarForm = () => {
         engine: '',
         mileage: ''
     });
-
-    const navigate = useNavigate();
+    const data = useData();
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -27,8 +26,11 @@ const AddCarForm = () => {
         e.preventDefault();
         //Logika po przesłaniu - redirect
         try {
+            console.log(formData);
+            console.log(data.cars);
             await createCar(formData);
-            // navigate("/vGarage");
+            await data.loadData();
+            alert("Dodano auto do garażu!");
         } catch (error) {
             console.log(error.response ? error.response.data : error.message);
         } finally {
@@ -48,6 +50,7 @@ const AddCarForm = () => {
                 Dodaj auto do garażu
             </h3>
             <Navbar/>
+            {data.error && <p style={{ color: 'red' }}>{data.error}</p>}
             <form onSubmit={handleSubmit}>
                 <InputField
                     label="Marka"
