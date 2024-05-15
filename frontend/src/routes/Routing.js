@@ -2,13 +2,14 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import LoginForm from "../components/User/LoginForm";
 import RegisterForm from "../components/User/RegisterForm";
-import CarDetails from "../components/Car/CarDetails";
 import AddCarForm from "../components/Car/AddCarForm";
-import PostDetails from "../components/Post/PostDetails";
 import AddPostForm from "../components/Post/AddPostForm";
 import MyGaragePageLIST from "../pages/MyGaragePageLIST";
 import MyGaragePageTABLE from "../pages/MyGaragePageTABLE";
 import MainPage from "../pages/MainPage";
+import CarDetailsPage from "../pages/CarDetailsPage";
+import PostDetailsPage from "../pages/PostDetailsPage";
+import EditCarForm from "../components/Car/EditCarForm";
 
 export const Routing = () => {
     return (
@@ -21,10 +22,11 @@ export const Routing = () => {
                 <Route path="/vGarage/myGarageLIST" element={<MyGaragePageLIST/>}/>
                 <Route path="/vGarage/myGarageTABLE" element={<MyGaragePageTABLE/>}/>
 
-                <Route path="/vGarage/myCars/:carID" element={<CarDetails/>}/>
+                <Route path="/vGarage/myCars/:carID" element={<CarDetailsPage/>}/>
                 <Route path="/vGarage/myCars/addCar" element={<AddCarForm/>}/>
+                <Route path="/vGarage/myCars/:carID/editCar" element={<EditCarForm/>}/>
 
-                <Route path="/vGarage/myCars/:carID/posts/:postID" element={<PostDetails/>}/>
+                <Route path="/vGarage/myCars/:carID/posts/:postID" element={<PostDetailsPage/>}/>
                 <Route path="/vGarage/myCars/:carID/posts/addPost" element={<AddPostForm/>}/>
 
                 <Route path="*" element={<div>404 i chuj</div>}/>

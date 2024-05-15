@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputField = ({ label, type, name, value, onChange, placeholder }) => {
+const InputField = ({ label, type, name, value, onChange, placeholder, inputRef }) => {
     return (
         <div className="flex justify-between">
             <label className="font-semibold capitalize">
@@ -13,6 +13,7 @@ const InputField = ({ label, type, name, value, onChange, placeholder }) => {
                 onChange={onChange}
                 placeholder={placeholder}
                 className="w-full p-2 my-2 border border-gray-300 rounded-md"
+                ref={inputRef}
             />
         </div>
     );

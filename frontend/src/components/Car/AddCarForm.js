@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import InputField from '../Form/InputField';
-import {createCar} from "../../api/services/Car";
+import {createCar, updateCar} from "../../api/services/Car";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
+import {useNavigate, useParams} from "react-router-dom";
 
+// TODO Poprawic formularz - dodac walidacje
 const AddCarForm = () => {
     const [formData, setFormData] = useState({
         brand: '',
@@ -13,6 +15,7 @@ const AddCarForm = () => {
         mileage: ''
     });
     const data = useData();
+    const navigate = useNavigate();
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -29,8 +32,9 @@ const AddCarForm = () => {
             console.log(formData);
             console.log(data.cars);
             await createCar(formData);
-            await data.loadData();
             alert("Dodano auto do garażu!");
+            await data.loadData();
+
         } catch (error) {
             console.log(error.response ? error.response.data : error.message);
         } finally {
@@ -47,7 +51,7 @@ const AddCarForm = () => {
     return (
         <div>
             <h3>
-                Dodaj auto do garażu
+                DODAJ AUTO
             </h3>
             <Navbar/>
             {data.error && <p style={{ color: 'red' }}>{data.error}</p>}

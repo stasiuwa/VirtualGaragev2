@@ -10,7 +10,7 @@ const getAllCars = async (req, res) => {
         }, {}, null);
         if (cars === null) return res.status(404).json({ message: "Cars not found" });
         res.status(200).json(cars);
-        console.log(cars);
+        // console.log(cars);
     } catch (err) {
         res.status(500).json({error: err, function: "carController.getAllCars"});
     }
@@ -47,6 +47,7 @@ const getCar = async (req, res) => {
 const updateCar = async (req, res) => {
     try {
         const carId = req.params.id;
+        console.log(carId);
         const { brand, model, car_year, engine, mileage } = req.body;
         // walidacja
         const errors = validationResult(req);

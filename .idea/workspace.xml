@@ -4,14 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="moved cars and user to context, added table view for displaying records, installed bootstrap">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="fixed carID for redirect Link in each post in table">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Car/EditCarForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/services/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/Car.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/InputField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/PostDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/PostDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/Routing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +138,7 @@
       <workItem from="1715542783605" duration="9533000" />
       <workItem from="1715590301706" duration="18239000" />
       <workItem from="1715680245631" duration="36213000" />
-      <workItem from="1715788933753" duration="15806000" />
+      <workItem from="1715788933753" duration="26366000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -301,7 +308,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715802430433</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added pagination (only for display) for tables and list of cars and posts">
+      <option name="closed" value="true" />
+      <created>1715805211149</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715805211149</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fixed carID for redirect Link in each post in table">
+      <option name="closed" value="true" />
+      <created>1715805711798</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715805711804</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,6 +417,8 @@
     <MESSAGE value="Moved loading data to rendering Navbar and pass variables from there to other pages." />
     <MESSAGE value="added create post function" />
     <MESSAGE value="moved cars and user to context, added table view for displaying records, installed bootstrap" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved cars and user to context, added table view for displaying records, installed bootstrap" />
+    <MESSAGE value="added pagination (only for display) for tables and list of cars and posts" />
+    <MESSAGE value="fixed carID for redirect Link in each post in table" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed carID for redirect Link in each post in table" />
   </component>
 </project>
