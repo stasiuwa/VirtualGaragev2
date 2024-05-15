@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="added create post function">
-      <change afterPath="$PROJECT_DIR$/frontend/src/DataContext.js" afterDir="false" />
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="moved cars and user to context, added table view for displaying records, installed bootstrap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Routing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,29 +55,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.13.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.12.11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pwins/Documents/SEM 6/Szkielety programistyczne w aplikacjach internetowych/virtual_garage_v2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.init -y.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\pwins\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.13.0",
+    "javascript.nodejs.core.library.typings.version": "20.12.11",
+    "last_opened_file_path": "C:/Users/pwins/Documents/SEM 6/Szkielety programistyczne w aplikacjach internetowych/virtual_garage_v2/frontend/src/Routes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.init -y.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\pwins\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\Routes" />
+      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\contexts" />
       <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\components\Post" />
     </key>
   </component>
@@ -135,7 +131,7 @@
       <workItem from="1715542783605" duration="9533000" />
       <workItem from="1715590301706" duration="18239000" />
       <workItem from="1715680245631" duration="36213000" />
-      <workItem from="1715788933753" duration="12832000" />
+      <workItem from="1715788933753" duration="15806000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -297,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715792022530</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="moved cars and user to context, added table view for displaying records, installed bootstrap">
+      <option name="closed" value="true" />
+      <created>1715802430433</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715802430433</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,6 +393,7 @@
     <MESSAGE value="Added pages for Car and Post create Form, display of Entities divided into two pages ( Table and List ), added routes and Navbar.js" />
     <MESSAGE value="Moved loading data to rendering Navbar and pass variables from there to other pages." />
     <MESSAGE value="added create post function" />
-    <option name="LAST_COMMIT_MESSAGE" value="added create post function" />
+    <MESSAGE value="moved cars and user to context, added table view for displaying records, installed bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved cars and user to context, added table view for displaying records, installed bootstrap" />
   </component>
 </project>

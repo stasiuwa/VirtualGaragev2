@@ -6,9 +6,6 @@ import {useData} from "../contexts/DataContext";
 
 const MyGaragePageLIST = () => {
     const data = useData();
-    if (!data) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div>
@@ -27,7 +24,7 @@ const MyGaragePageLIST = () => {
                     <div className="flex-grow-1 m-2">
                         <CarTable data={data}/>
                     </div>
-                    <div className="flex-grow-1">
+                    <div className="flex-grow-1 m-2">
                         <PostTable data={data}/>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator');
 
 const getAllCars = async (req, res) => {
     try {
-        // console.log(req.user);
+        console.log(req.user);
         const userID = req.user._id;
         const cars = await Car.find({
              userID: userID

@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
-import {logoutUser, getUser} from "../api/services/User";
-import {getAllCars} from "../api/services/Car";
+import {logoutUser} from "../api/services/User";
 import {useData} from "../contexts/DataContext";
 
 const Navbar = () => {

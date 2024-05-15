@@ -9,13 +9,9 @@ export const DataProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
-    // Podział na strony
-    const [currentPage, setCurrentPage] = useState(1);
-    const [perPage, setPerPage] = useState(10);
-
     useEffect(() => {
         loadData().then();
-    }, [currentPage]);
+    }, []);
 
     /**
      * Wczytuje dane z bazy danych za pomoca funkcji z ../api/services/ i zapisuje je do zmiennych
@@ -39,23 +35,6 @@ export const DataProvider = ({ children }) => {
         }
         fetchUser().then(fetchCars);
     }
-    // const addPostToCar = (post) => {
-    //     setCars(prevCars => {
-    //         // Znajdź samochód o podanym carId
-    //         return prevCars.map(car => {
-    //             if (car._id === post.carID) {
-    //                 // Znaleziono samochód, dodaj nowy post do jego listy postów
-    //                 return {
-    //                     ...car,
-    //                     // Dodaj nowy post do listy postów
-    //                     posts: [...car.posts, post]
-    //                 };
-    //             }
-    //             // Jeśli to nie jest szukany samochód, zwróć bez zmian
-    //             return car;
-    //         });
-    //     });
-    // }
 
     const data = {user, cars, error, loadData};
 
