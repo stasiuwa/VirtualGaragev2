@@ -1,7 +1,12 @@
-import React, {} from "react";
+import React, {useEffect} from "react";
 import Navbar from "../components/Navbar";
+import {useData} from "../contexts/DataContext";
 
 const GaragePage = () => {
+    const data = useData();
+    useEffect(() => {
+        data.loadData();
+    }, []);
     return (
         <div>
             <h3>Wirtualny Garaż</h3>

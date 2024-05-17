@@ -4,7 +4,6 @@ const cors = require('cors');
 const carRoutes = require('./routes/carRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cookieParser = require('cookie-parser');
-
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -32,6 +31,9 @@ app.use((req, res, next) => {
 app.use('/api/users', userRoutes);
 app.use('/api/cars', carRoutes);
 
+// app.get('*', (req, res) => {
+//     res.status(404).send("TUTAJ NIC NIE ZNAJDZIESZ");
+// })
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);

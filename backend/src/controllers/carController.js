@@ -1,5 +1,4 @@
 const Car = require('../models/Car');
-const { validationResult } = require('express-validator');
 
 const getAllCars = async (req, res) => {
     try {
@@ -8,7 +7,7 @@ const getAllCars = async (req, res) => {
         const cars = await Car.find({
              userID: userID
         }, {}, null);
-        if (cars === null) return res.status(404).json({ message: "Cars not found" });
+        if (cars === null) return res.status(404).json({message: "Cars not found" });
         res.status(200).json(cars);
         // console.log(cars);
     } catch (err) {
@@ -18,10 +17,6 @@ const getAllCars = async (req, res) => {
 
 const createCar = async (req, res) => {
     try {
-        // walidacja
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) return res.status(400).json({errors: errors.array()});
-
         const userID = req.user._id;
         const { brand, model, car_year, engine, mileage } = req.body;
         // console.log(" carController.createCar - req: " + req.body);
@@ -41,7 +36,7 @@ const getCar = async (req, res) => {
         if (car === null) return res.status(404).send({message: "Car not found!"});
         res.status(200).json(car);
     } catch (err) {
-        res.status(500).json({error: err, function: "carController.getCar"});
+        res.status(500).send({error: err, function: "carController.getCar"});
     }
 }
 const updateCar = async (req, res) => {
@@ -49,9 +44,7 @@ const updateCar = async (req, res) => {
         const carId = req.params.id;
         console.log(carId);
         const { brand, model, car_year, engine, mileage } = req.body;
-        // walidacja
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) return res.status(400).json({errors: errors.array()});
+
         await Car.updateOne(
             {
                 _id: carId,
@@ -68,7 +61,7 @@ const updateCar = async (req, res) => {
         );
         res.status(200).send("Car updated!");
     } catch (err) {
-        res.status(500).json({error: err, function: "carController.updateCar"})
+        res.status(500).send({error: err, function: "carController.updateCar"})
     }
 }
 const deleteCar = async (req, res) => {
@@ -81,7 +74,7 @@ const deleteCar = async (req, res) => {
             {}
         ).then(res.status(200).send("Car deleted!"));
     } catch (err) {
-        res.status(500).json({error: err, function: "carController.deleteCar"})
+        res.status(500).send({error: err, function: "carController.deleteCar"})
     }
 }
 

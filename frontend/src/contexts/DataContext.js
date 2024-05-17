@@ -9,10 +9,6 @@ export const DataProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        loadData().then();
-    }, []);
-
     /**
      * Wczytuje dane z bazy danych za pomoca funkcji z ../api/services/ i zapisuje je do zmiennych
      */

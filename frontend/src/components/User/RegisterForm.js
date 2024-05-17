@@ -31,7 +31,11 @@ const RegisterForm = () => {
                 navigate("/login");
             }
         } catch (error) {
+            // odbiór odpowiedzi z walidacji od serwera i wyswietlenie jej w alercie na stronie
             console.log(error.response ? error.response.data : error.message);
+            const message = (error.response ? error.response.data.message : error.message);
+            // console.log(error.response.data.error.errors);
+            alert(`${error.response.data.error}`);
         }
     };
 

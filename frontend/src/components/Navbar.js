@@ -11,6 +11,7 @@ const Navbar = () => {
         return <div>Loading...</div>;
     }
 
+
     const logout = async () => {
         try {
             await logoutUser();
@@ -49,7 +50,6 @@ const Navbar = () => {
             <button onClick={logout}>
                 Wyloguj się
             </button>
-            {data.error && <p style={{ color: 'red' }}>{data.error}</p>}
         </div>
     )
 }

@@ -5,20 +5,20 @@ const {Schema} = require("mongoose");
 const userSchema = new Schema({
     username: {
         type: String,
-        unique: true,
+        unique: [true, "Taki użytkownik już istnieje"],
         trim: true,
-        required: true
+        required: [true, "Musisz podać nazwe użytkownika jak chcesz być użytkownikiem"]
     },
     email: {
         type: String,
-        unique: true,
+        unique: [true, "Ten email jest zajęty, znajdź se nowy"],
         lowercase: true,
         trim: true,
-        required: true
+        required: [true, "No jak zalozysz konto bez maila?"]
     },
     password: {
         type: String,
-        required: true
+        required: [true, "PODAJ HASŁO"]
     },
     created: {
         type: Date,

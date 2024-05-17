@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React, {useEffect} from "react";
 import CarList from "../components/Car/CarList";
 import Navbar from "../components/Navbar";
 import {useData} from "../contexts/DataContext";
