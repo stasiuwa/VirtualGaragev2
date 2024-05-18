@@ -37,7 +37,7 @@ const EditCarForm = () => {
             }
         };
         fetchCarData();
-    }, []);
+    }, [carID, navigate]);
 
     // Funkcja obsługująca submit formularza
     const handleSubmit = async (e) => {

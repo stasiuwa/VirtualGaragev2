@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {deleteCar} from "../../api/services/Car";
 import {useData} from "../../contexts/DataContext";
@@ -8,6 +8,7 @@ const CarTable = (props) => {
     const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(15);
+
 
     const indexOfFirstCar = (currentPage - 1) * perPage;
     const indexOfLastCar = indexOfFirstCar + perPage;

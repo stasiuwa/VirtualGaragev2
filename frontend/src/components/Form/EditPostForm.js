@@ -43,7 +43,7 @@ const EditPostForm = () => {
             }
         }
         fetchPostData();
-    }, []);
+    }, [carID, postID]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

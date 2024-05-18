@@ -4,28 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="Added details about posts, edit feature, displayed posts in car details page, added delete button to table's records fixed password checking">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Form/validation.js" afterDir="false" />
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="finished CRUD features for both entities, added redirect to /login if unauthorized, added WelcomePage.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/services/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/AddCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/AddCarForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/AddPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/AddPostForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/EditCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/EditCarForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/EditPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/EditPostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Form/InputField.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/InputField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/User/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/User/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/WelcomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/WelcomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/routes/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/Routing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +137,7 @@
       <workItem from="1715963477844" duration="10000" />
       <workItem from="1715974215905" duration="7234000" />
       <workItem from="1715982791952" duration="10002000" />
-      <workItem from="1716025118256" duration="12261000" />
+      <workItem from="1716025118256" duration="14290000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -361,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715992465300</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="finished CRUD features for both entities, added redirect to /login if unauthorized, added WelcomePage.js">
+      <option name="closed" value="true" />
+      <created>1716038221800</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1716038221800</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +427,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-    <MESSAGE value="made API with CRUD for carController.js" />
     <MESSAGE value="cleaning up warnings" />
     <MESSAGE value="fixed updateCar function, added CRUD API for postController.js" />
     <MESSAGE value="changed Post and Car entities to one-to-many relation, updated CRUD and API functions" />
@@ -458,6 +451,7 @@
     <MESSAGE value="Divided forms for Car into two ( EditCarForm.js and AddCarForm.js ), Add is missing validate." />
     <MESSAGE value="Fixed login, added alerts to handle response from server, added updateCar, and createPost features, fixed some bugs and errors" />
     <MESSAGE value="Added details about posts, edit feature, displayed posts in car details page, added delete button to table's records fixed password checking" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added details about posts, edit feature, displayed posts in car details page, added delete button to table's records fixed password checking" />
+    <MESSAGE value="finished CRUD features for both entities, added redirect to /login if unauthorized, added WelcomePage.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished CRUD features for both entities, added redirect to /login if unauthorized, added WelcomePage.js" />
   </component>
 </project>
