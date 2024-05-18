@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import InputField from "./InputField";
 import {createPost} from "../../api/services/Post";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
 import {validatePostForm} from "./validation";
+import merolIcon from "../../assets/img/merolico.png";
 
 const AddPostForm = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +17,10 @@ const AddPostForm = () => {
     });
     const [formErrors, setFormErrors] = useState({})
     const data = useData();
+
+    useEffect(() => {
+        data.loadData();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -87,16 +92,28 @@ const AddPostForm = () => {
 
     return (
         <div>
-            <h3>
-                Dodaj wpis do auta
-            </h3>
+            <div style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                padding: '1vw',
+                background: '#27211e'
+            }}>
+                <div style={{fontSize: '175%', color: '#cf4a4a', marginLeft: '2vw'}}>
+                    DODAJ WPIS
+                </div>
+                <div style={{fontSize: '175%', color: '#cf4a4a', marginRight: '2vw'}}>
+                    GARASH&nbsp;<img className="logo-img" src={merolIcon} alt={'merol_ikonka'}/>
+                </div>
+            </div>
             <Navbar/>
             <form
                 onSubmit={handleSubmit}
                 onReset={handleReset}
+                style={{width: '50%', marginLeft: '15%'}}
             >
                 <div className="form-group">
-                    <label htmlFor="carID">Wybierz samochód</label>
+                    <label htmlFor="carID" style={{color: 'white'}}>Wybierz samochód</label>
                     <select
                         className={`form-control ${formErrors.carID ? 'is-invalid' : ''}`}
                         id="carID"
@@ -113,6 +130,7 @@ const AddPostForm = () => {
                     </select>
                     {formErrors.carID && <div className="invalid-feedback">{formErrors.carID}</div>}
                 </div>
+
                 <InputField
                     label="Typ"
                     type="text"
@@ -156,8 +174,13 @@ const AddPostForm = () => {
                     placeholder="Wprowadź cenę..."
                     error={formErrors.price}
                 />
-                <button type="reset">Wyczyść</button>
-                <button type="submit">Dodaj wpis</button>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}>
+                    <button type="reset" className={'form-btn'}>Wyczyść</button>
+                    <button type="submit" className={'form-btn'}>Dodaj wpis</button>
+                </div>
             </form>
         </div>
     );

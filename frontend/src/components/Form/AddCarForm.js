@@ -4,6 +4,7 @@ import {createCar} from "../../api/services/Car";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
 import {validateCarForm} from "./validation";
+import merolIcon from "../../assets/img/merolico.png";
 
 const AddCarForm = () => {
     const [formData, setFormData] = useState({
@@ -83,13 +84,25 @@ const AddCarForm = () => {
 
     return (
         <div>
-            <h3>
-                DODAJ AUTO
-            </h3>
+            <div style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                padding: '1vw',
+                background: '#27211e'
+            }}>
+                <div style={{fontSize: '175%', color: '#cf4a4a', marginLeft: '2vw'}}>
+                    DODAJ AUTO
+                </div>
+                <div style={{fontSize: '175%', color: '#cf4a4a', marginRight: '2vw'}}>
+                    GARASH&nbsp;<img className="logo-img" src={merolIcon} alt={'merol_ikonka'}/>
+                </div>
+            </div>
             <Navbar/>
             <form
                 onSubmit={handleSubmit}
                 onReset={handleReset}
+                style={{width: '50%', marginLeft: '15%'}}
             >
                 <InputField
                     label="Marka"
@@ -136,8 +149,13 @@ const AddCarForm = () => {
                     placeholder="Wprowadź przebieg samochodu..."
                     error={formErrors.mileage}
                 />
-                <button type="reset">Wyczyść</button>
-                <button type="submit">Dodaj samochód</button>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between'
+                }}>
+                    <button type="reset" className={'form-btn'}>Wyczyść</button>
+                    <button type="submit" className={'form-btn'}>Dodaj samochód</button>
+                </div>
             </form>
         </div>
     );

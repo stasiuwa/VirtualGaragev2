@@ -6,7 +6,8 @@ import RegisterForm from "../components/User/RegisterForm";
 import AddCarForm from "../components/Form/AddCarForm";
 import AddPostForm from "../components/Form/AddPostForm";
 import MyGaragePageLIST from "../pages/MyGaragePageLIST";
-import MyGaragePageTABLE from "../pages/MyGaragePageTABLE";
+import MyGaragePageCarTABLE from "../pages/MyGaragePageCarTABLE";
+import MyGaragePagePostTABLE from "../pages/MyGaragePagePostTABLE";
 import MainPage from "../pages/MainPage";
 import CarDetailsPage from "../pages/CarDetailsPage";
 import PostDetailsPage from "../pages/PostDetailsPage";
@@ -24,7 +25,8 @@ export const Routing = () => {
                 <Route path="/vGarage" element={<MainPage/>}/>
 
                 <Route path="/vGarage/myGarageLIST" element={<MyGaragePageLIST/>}/>
-                <Route path="/vGarage/myGarageTABLE" element={<MyGaragePageTABLE/>}/>
+                <Route path="/vGarage/myGarageCarTABLE" element={<MyGaragePageCarTABLE/>}/>
+                <Route path="/vGarage/myGaragePostTABLE" element={<MyGaragePagePostTABLE/>}/>
 
                 <Route path="/vGarage/myCars/addCar" element={<AddCarForm/>}/>
                 <Route path="/vGarage/myCars/:carID" element={<CarDetailsPage/>}/>
@@ -34,7 +36,18 @@ export const Routing = () => {
                 <Route path="/vGarage/myCars/:carID/posts/:postID" element={<PostDetailsPage/>}/>
                 <Route path="/vGarage/myCars/:carID/posts/:postID/editPost" element={<EditPostForm/>}/>
 
-                <Route path="*" element={<div>404 i chuj</div>}/>
+                <Route path="*" element={
+                    <div style={{
+                        display: 'flex',
+                        height: '90vh',
+                        alignItems: 'center',
+                        justifyContent:'center',
+                    }}>
+                        <h1 style={{ color: 'white', fontSize: '400%'}}>
+                            NIEPOPRAWNY ADRES!!1!
+                        </h1>
+                    </div>
+                }/>
             </Routes>
         </BrowserRouter>
     )

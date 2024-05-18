@@ -1,10 +1,11 @@
 import React, {useEffect} from "react";
-import CarList from "../components/Car/CarList";
 import Navbar from "../components/Navbar";
+import CarTable from "../components/Car/CarTable";
+import PostTable from "../components/Post/PostTable";
 import {useData} from "../contexts/DataContext";
 import merolIcon from "../assets/img/merolico.png";
 
-const MyGaragePageLIST = () => {
+const MyGaragePagePostTABLE = () => {
     const data = useData();
     useEffect(() => {
         data.loadData();
@@ -20,7 +21,7 @@ const MyGaragePageLIST = () => {
                     background: '#27211e'
                 }}>
                     <div style={{fontSize: '175%', color: '#cf4a4a', marginLeft: '2vw'}}>
-                        LISTA AUT
+                        TABELA WPISÓW
                     </div>
                     <div style={{fontSize: '175%', color: '#cf4a4a', marginRight: '2vw'}}>
                         GARASH&nbsp;<img className="logo-img" src={merolIcon} alt={'merol_ikonka'}/>
@@ -28,10 +29,11 @@ const MyGaragePageLIST = () => {
                 </div>
                 <Navbar/>
                 <div>
-                    <CarList data={data}/>
+                    <PostTable data={data}/>
                 </div>
             </div>
+
         </div>
     )
 }
-export default MyGaragePageLIST;
+export default MyGaragePagePostTABLE;

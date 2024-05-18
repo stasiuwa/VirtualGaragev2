@@ -25,17 +25,21 @@ const PostTable = (props) => {
 
     return (
         <div>
-            <div>
-                <button onClick={() => setCurrentPage(currentPage - 1)}
+            <div style={{
+                padding: '2%',
+            }}>
+                <button className={'btn btn-light'}
+                        onClick={() => setCurrentPage(currentPage - 1)}
                         disabled={currentPage === 1}>
                     Poprzednia strona
                 </button>
-                <button onClick={() => setCurrentPage(currentPage + 1)}
-                        disabled={indexOfLastPost >= allPosts.length}>
+                <button className={'btn btn-light'} style={{marginLeft: '1vw'}}
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                        disabled={indexOfLastPost >= props.data.cars.length}>
                     Następna strona
                 </button>
             </div>
-            <table>
+            <table className={'table table-dark table-responsive-xxl'}>
                 <thead>
                 <tr>
                     <th>Typ</th>
@@ -43,6 +47,8 @@ const PostTable = (props) => {
                     <th>Przebieg</th>
                     <th>Szczegóły</th>
                     <th>Cena</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -54,10 +60,12 @@ const PostTable = (props) => {
                         <td>{post.details}</td>
                         <td>{post.price}</td>
                         <td>
-                            <button onClick={() => navigate(`/vGarage/myCars/${post.carID}/posts/${post._id}`)}>SZCZEGÓŁY</button>
+                            <button className={'btn btn-dark'} style={{color: 'blue'}}
+                                    onClick={() => navigate(`/vGarage/myCars/${post.carID}/posts/${post._id}`)}>SZCZEGÓŁY</button>
                         </td>
                         <td>
-                            <button onClick={() => deleteButton(post.carID, post._id)}>USUŃ</button>
+                            <button className={'btn btn-dark'} style={{color: 'red'}}
+                                    onClick={() => deleteButton(post.carID, post._id)}>USUŃ</button>
                         </td>
                     </tr>
                 ))}
