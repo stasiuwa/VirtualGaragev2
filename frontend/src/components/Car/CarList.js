@@ -27,10 +27,10 @@ const CarList = (props) => {
                         <Link to={`/vGarage/myCars/${car._id}`}>
                             {car.brand} {car.model} {car.car_year} {car.engine} {car.mileage}
                         </Link>
-                        <ul>
+                        <ul style={{ listStyleType: 'decimal' }}>
                             {car.posts.map((item, index) => (
                                 <li key={index}>
-                                    <Link to={`/vGarage/myCars/${car._id}/posts/${index}`}>
+                                    <Link to={`/vGarage/myCars/${car._id}/posts/${item._id}`}>
                                         {item.type} {item.date} {item.mileage} {item.details} {item.price}
                                     </Link>
                                 </li>

@@ -1,13 +1,16 @@
-import React, {useState} from "react";
-import InputField from "../Form/InputField";
-import {createPost} from "../../api/services/Post";
+import React, {useEffect, useState} from "react";
+import InputField from "./InputField";
+import {createPost, getPost, updatePost} from "../../api/services/Post";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
+import {useNavigate, useParams} from "react-router-dom";
+import {getCar} from "../../api/services/Car";
 
-const AddPostForm = () => {
-
+const EditPostForm = () => {
+    const { carID, postID} = useParams();
+    const [car, setCar] = useState({});
     const [formData, setFormData] = useState({
-        carID: '',
+        carID: carID,
         type: '',
         date: '',
         mileage: '',
@@ -15,24 +18,42 @@ const AddPostForm = () => {
         price: ''
     });
     const data = useData();
+    const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
+    useEffect(() => {
+        const fetchPostData = async () => {
+            try {
+            //     zapytanie GET do API w celu pobrania danych o wpisie
+                const responseCar = await getCar(carID);
+                setCar(responseCar.data);
+                const responsePost = await getPost(carID, postID);
+                setFormData({
+                    type: responsePost.data.type,
+                    date: responsePost.data.date,
+                    mileage: responsePost.data.mileage,
+                    details: responsePost.data.details,
+                    price: responsePost.data.price
+                });
+
+            } catch (error) {
+                console.log(error.response ? error.response.data : error.message);
+                alert('Nie znaleziono wpisu!');
+            }
+        }
+        fetchPostData();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // logika po przesłaniu
         try {
-            console.log(formData.carID,formData);
-            // data.addPostToCar(formData);
-            const response = await createPost(formData.carID, formData);
+            console.log(carID);
+            console.log(postID);
+            console.log(formData);
+            await updatePost(carID, postID, formData);
             await data.loadData();
-            alert("Dodano wpis do auta!");
+            alert("Edytowano wpis!");
+            navigate(`/vGarage/myCars/${carID}/posts/${postID}`);
         } catch (error) {
             // odbiór odpowiedzi z walidacji od serwera i wyswietlenie jej w alercie na stronie
             console.log(error.response ? error.response.data : error.message);
@@ -45,42 +66,38 @@ const AddPostForm = () => {
                 const errorMessage = error.response?.data?.error?.message || "Wystąpił błąd. Spróbuj ponownie później.";
                 alert(`Błąd (czy to blond): ${errorMessage}`);
             }
-
-        } finally {
-            // Resetowanie formularza po wysłaniu danych
-            setFormData({
-                carID: '',
-                type: '',
-                date: '',
-                mileage: '',
-                details: '',
-                price: ''
-            });
         }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
     };
 
     return (
         <div>
             <h3>
-                Dodaj wpis do auta
+                Edytuj wpis
             </h3>
             <Navbar/>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="carID">Wybierz samochód</label>
+                    <label htmlFor="carID">Samochód</label>
                     <select
                         className="form-control"
                         id="carID"
                         name="carID"
-                        value={formData.carID}
-                        onChange={handleChange}
+                        disabled={true}
+                        value={car ? car._id : ''}
                     >
-                        <option value="">-- Wybierz samochód --</option>
-                        {data.cars.map((car) => (
+                        {car && (
                             <option key={car._id} value={car._id}>
                                 {car.brand} {car.model} ({car.car_year})
                             </option>
-                        ))}
+                        )}
                     </select>
                 </div>
                 <InputField
@@ -124,10 +141,10 @@ const AddPostForm = () => {
                     placeholder="Wprowadź cenę..."
                 />
                 <button type="reset">Wyczyść</button>
-                <button type="submit">Dodaj wpis</button>
+                <button type="submit">Edytuj wpis</button>
             </form>
         </div>
     );
 };
 
-export default AddPostForm;
+export default EditPostForm;

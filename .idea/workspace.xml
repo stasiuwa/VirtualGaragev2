@@ -4,24 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="Divided forms for Car into two ( EditCarForm.js and AddCarForm.js ), Add is missing validate.">
+    <list default="true" id="3e8f790b-47f5-4e11-b683-d44ea5133111" name="Changes" comment="Fixed login, added alerts to handle response from server, added updateCar, and createPost features, fixed some bugs and errors">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Form/EditPostForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/WelcomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/carController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/carController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/postController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/postController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/Car.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/Car.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/carRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/EditCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/EditCarForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/User/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/User/RegisterForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/User/RegisterForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/contexts/DataContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/services/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/services/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/AddCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/AddCarForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Car/CarTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Car/EditCarForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/EditCarForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/AddPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Form/AddPostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/PostDetails.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/PostTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CarDetailsPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageLIST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MyGaragePageTABLE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PostDetailsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/routes/Routing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/routes/Routing.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,32 +67,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.13.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.12.11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/pwins/Documents/SEM 6/Szkielety programistyczne w aplikacjach internetowych/virtual_garage_v2/frontend/src/Routes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.init -y.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\pwins\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.13.0",
+    "javascript.nodejs.core.library.typings.version": "20.12.11",
+    "last_opened_file_path": "C:/Users/pwins/Documents/SEM 6/Szkielety programistyczne w aplikacjach internetowych/virtual_garage_v2/frontend/src/components/Form",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.init -y.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\pwins\\AppData\\Local\\Programs\\WebStorm\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\components\Post" />
+      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\components\Car" />
+      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\components\Form" />
       <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\Routes" />
       <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\contexts" />
-      <recent name="C:\Users\pwins\Documents\SEM 6\Szkielety programistyczne w aplikacjach internetowych\virtual_garage_v2\frontend\src\components\Post" />
     </key>
   </component>
   <component name="RunManager">
@@ -144,7 +148,7 @@
       <workItem from="1715788933753" duration="26855000" />
       <workItem from="1715963477844" duration="10000" />
       <workItem from="1715974215905" duration="7234000" />
-      <workItem from="1715982791952" duration="2130000" />
+      <workItem from="1715982791952" duration="9479000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -338,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715816137996</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed login, added alerts to handle response from server, added updateCar, and createPost features, fixed some bugs and errors">
+      <option name="closed" value="true" />
+      <created>1715985073896</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715985073896</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,6 +446,7 @@
     <MESSAGE value="added pagination (only for display) for tables and list of cars and posts" />
     <MESSAGE value="fixed carID for redirect Link in each post in table" />
     <MESSAGE value="Divided forms for Car into two ( EditCarForm.js and AddCarForm.js ), Add is missing validate." />
-    <option name="LAST_COMMIT_MESSAGE" value="Divided forms for Car into two ( EditCarForm.js and AddCarForm.js ), Add is missing validate." />
+    <MESSAGE value="Fixed login, added alerts to handle response from server, added updateCar, and createPost features, fixed some bugs and errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed login, added alerts to handle response from server, added updateCar, and createPost features, fixed some bugs and errors" />
   </component>
 </project>

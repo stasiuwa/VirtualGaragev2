@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React, {useEffect} from "react";
 import Navbar from "../components/Navbar";
 import CarTable from "../components/Car/CarTable";
 import PostTable from "../components/Post/PostTable";
@@ -6,7 +6,9 @@ import {useData} from "../contexts/DataContext";
 
 const MyGaragePageLIST = () => {
     const data = useData();
-
+    useEffect(() => {
+        data.loadData();
+    }, []);
     return (
         <div>
             <div>

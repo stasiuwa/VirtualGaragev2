@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import {getCar, updateCar} from "../../api/services/Car";
 import {useNavigate, useParams} from "react-router-dom";
 import Navbar from "../Navbar";
-import InputField from "../Form/InputField";
+import InputField from "./InputField";
 import {useData} from "../../contexts/DataContext";
 
 const EditCarForm = () => {
@@ -44,17 +44,8 @@ const EditCarForm = () => {
                     mileage: car.data.mileage,
                 })
             } catch (error) {
-                // odbiór odpowiedzi z walidacji od serwera i wyswietlenie jej w alercie na stronie
                 console.log(error.response ? error.response.data : error.message);
-                // console.log(error.response.data.error.errors);
-                if (error.response.data.error.errors){
-                    const errors = error.response.data.error.errors;
-                    const errorMessages = Object.values(errors).map(err => err.message).join("\n");
-                    alert(`POPRAW W FORMUALRZU:\n${errorMessages}`);
-                } else {
-                    const errorMessage = error.response?.data?.error?.message || "Wystąpił błąd. Spróbuj ponownie później.";
-                    alert(`Błąd (czy to blond): ${errorMessage}`);
-                }
+                alert('Nie znaleziono Auta!');
             }
         };
         fetchCarData();
@@ -85,7 +76,17 @@ const EditCarForm = () => {
                 navigate('/vGarage');
 
             } catch (error) {
+                // odbiór odpowiedzi z walidacji od serwera i wyswietlenie jej w alercie na stronie
                 console.log(error.response ? error.response.data : error.message);
+                // console.log(error.response.data.error.errors);
+                if (error.response.data.error.errors){
+                    const errors = error.response.data.error.errors;
+                    const errorMessages = Object.values(errors).map(err => err.message).join("\n");
+                    alert(`POPRAW W FORMUALRZU:\n${errorMessages}`);
+                } else {
+                    const errorMessage = error.response?.data?.error?.message || "Wystąpił błąd. Spróbuj ponownie później.";
+                    alert(`Błąd (czy to blond): ${errorMessage}`);
+                }
             }
         }
 

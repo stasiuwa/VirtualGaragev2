@@ -5,6 +5,9 @@ import {useData} from "../contexts/DataContext";
 
 const MyGaragePageLIST = () => {
     const data = useData();
+    useEffect(() => {
+        data.loadData();
+    }, []);
     return (
         <div>
             <div>

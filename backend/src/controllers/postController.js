@@ -2,10 +2,11 @@ const Car= require('../models/Car')
 
 const getAllPosts = async (req, res) => {
     try {
+        console.log(req.params.id);
         const car = await Car.findById(req.params.id, {}, null);
         if (car === null) return res.status(404).send({message: "Car not found!"});
         if (car.posts === null) return res.status(404).send({ message: "Posts not found!"});
-
+        console.log(car.posts);
         res.status(200).send(car.posts);
     } catch (error) {
         res.status(500).send({ error: error, function: "postController.getAllPosts" });
@@ -47,6 +48,7 @@ const getPost = async (req, res) => {
 }
 const updatePost = async (req, res) => {
     try {
+        console.log(req.params);
         const postId = req.params.postId;
         const car = await Car.findById(req.params.id, {}, null);
         if (car === null) return res.status(404).send({message: "Car not found!"});

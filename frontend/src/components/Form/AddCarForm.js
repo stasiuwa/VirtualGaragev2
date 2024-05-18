@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
-import InputField from '../Form/InputField';
-import {createCar, updateCar} from "../../api/services/Car";
+import React, {useState} from 'react';
+import InputField from './InputField';
+import {createCar} from "../../api/services/Car";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 // TODO Poprawic formularz - dodac walidacje
 const AddCarForm = () => {

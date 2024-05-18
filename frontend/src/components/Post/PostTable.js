@@ -1,7 +1,12 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useData} from "../../contexts/DataContext";
+import {deletePost} from "../../api/services/Post";
+
 
 const PostTable = (props) => {
+    const data = useData();
+    const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(15);
 
@@ -11,6 +16,12 @@ const PostTable = (props) => {
     const indexOfFirstPost = (currentPage - 1) * perPage;
     const indexOfLastPost = indexOfFirstPost + perPage;
     const currentPosts = allPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    const deleteButton = async (carID, postID) => {
+        await deletePost(carID, postID);
+        alert("Usunieto wpis!");
+        await data.loadData();
+    }
 
     return (
         <div>
@@ -43,9 +54,10 @@ const PostTable = (props) => {
                         <td>{post.details}</td>
                         <td>{post.price}</td>
                         <td>
-                            <Link to={`/vGarage/myCars/${post.carID}/posts/${post._id}`}>
-                                SZCZEGÓŁY
-                            </Link>
+                            <button onClick={() => navigate(`/vGarage/myCars/${post.carID}/posts/${post._id}`)}>SZCZEGÓŁY</button>
+                        </td>
+                        <td>
+                            <button onClick={() => deleteButton(post.carID, post._id)}>USUŃ</button>
                         </td>
                     </tr>
                 ))}

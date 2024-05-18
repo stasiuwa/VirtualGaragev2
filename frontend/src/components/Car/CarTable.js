@@ -1,13 +1,23 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {deleteCar} from "../../api/services/Car";
+import {useData} from "../../contexts/DataContext";
 
 const CarTable = (props) => {
+    const data = useData();
+    const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(15);
 
     const indexOfFirstCar = (currentPage - 1) * perPage;
     const indexOfLastCar = indexOfFirstCar + perPage;
     const currentCars = props.data.cars.slice(indexOfFirstCar, indexOfLastCar);
+
+    const deleteButton = async (carID) => {
+        await deleteCar(carID);
+        alert("Usunieto auto!");
+        await data.loadData();
+    }
 
     return (
         <div>
@@ -40,9 +50,10 @@ const CarTable = (props) => {
                         <td>{car.engine}</td>
                         <td>{car.mileage}</td>
                         <td>
-                            <Link to={`/vGarage/myCars/${car._id}`}>
-                                SZCZEGÓŁY
-                            </Link>
+                            <button onClick={() => navigate(`/vGarage/myCars/${car._id}`)}>SZCZEGÓŁY</button>
+                        </td>
+                        <td>
+                            <button onClick={() => deleteButton(car._id)}>USUŃ</button>
                         </td>
                     </tr>
                 ))}
