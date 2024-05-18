@@ -2,7 +2,7 @@ const Car = require('../models/Car');
 
 const getAllCars = async (req, res) => {
     try {
-        console.log(req.user);
+        // console.log(req.user);
         const userID = req.user._id;
         const cars = await Car.find({
              userID: userID
@@ -72,7 +72,8 @@ const deleteCar = async (req, res) => {
                 userID: req.user._id,
             },
             {}
-        ).then(res.status(200).send("Car deleted!"));
+        );
+        return res.status(200).send("Car deleted!");
     } catch (err) {
         res.status(500).send({error: err, function: "carController.deleteCar"})
     }

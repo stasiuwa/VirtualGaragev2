@@ -3,9 +3,9 @@ import InputField from "./InputField";
 import {createPost} from "../../api/services/Post";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
+import {validatePostForm} from "./validation";
 
 const AddPostForm = () => {
-
     const [formData, setFormData] = useState({
         carID: '',
         type: '',
@@ -14,23 +14,23 @@ const AddPostForm = () => {
         details: '',
         price: ''
     });
+    const [formErrors, setFormErrors] = useState({})
     const data = useData();
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // walidacja
+        const validationResults = validatePostForm(formData);
+        if (Object.keys(validationResults).length > 0) {
+            setFormErrors(validationResults);
+            return
+        }
+
         // logika po przesłaniu
         try {
             console.log(formData.carID,formData);
             // data.addPostToCar(formData);
-            const response = await createPost(formData.carID, formData);
+            await createPost(formData.carID, formData);
             await data.loadData();
             alert("Dodano wpis do auta!");
         } catch (error) {
@@ -59,17 +59,46 @@ const AddPostForm = () => {
         }
     };
 
+    const handleReset = () => {
+        setFormData({
+            carID: '',
+            type: '',
+            date: '',
+            mileage: '',
+            details: '',
+            price: ''
+        });
+        setFormErrors({})
+    }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+        // Resetowanie błędu dla aktualizowanego pola
+        if (formErrors[name]) {
+            setFormErrors({
+                ...formErrors,
+                [name]: undefined
+            });
+        }
+    };
+
     return (
         <div>
             <h3>
                 Dodaj wpis do auta
             </h3>
             <Navbar/>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                onReset={handleReset}
+            >
                 <div className="form-group">
                     <label htmlFor="carID">Wybierz samochód</label>
                     <select
-                        className="form-control"
+                        className={`form-control ${formErrors.carID ? 'is-invalid' : ''}`}
                         id="carID"
                         name="carID"
                         value={formData.carID}
@@ -82,6 +111,7 @@ const AddPostForm = () => {
                             </option>
                         ))}
                     </select>
+                    {formErrors.carID && <div className="invalid-feedback">{formErrors.carID}</div>}
                 </div>
                 <InputField
                     label="Typ"
@@ -90,6 +120,7 @@ const AddPostForm = () => {
                     value={formData.type}
                     onChange={handleChange}
                     placeholder="Wprowadź typ wpisu..."
+                    error={formErrors.type}
                 />
                 <InputField
                     label="Data"
@@ -106,6 +137,7 @@ const AddPostForm = () => {
                     value={formData.mileage}
                     onChange={handleChange}
                     placeholder="Wprowadź przebieg..."
+                    error={formErrors.mileage}
                 />
                 <InputField
                     label="Szczegóły"
@@ -122,6 +154,7 @@ const AddPostForm = () => {
                     value={formData.price}
                     onChange={handleChange}
                     placeholder="Wprowadź cenę..."
+                    error={formErrors.price}
                 />
                 <button type="reset">Wyczyść</button>
                 <button type="submit">Dodaj wpis</button>

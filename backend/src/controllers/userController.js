@@ -5,6 +5,20 @@ const User = require('../models/user');
 const {JWT_KEY} = require('../middleware/loginRequired')
 
 const register = async (req, res) => {
+    try {
+        if (req.body.email) {
+            if ( await User.findOne({ email: req.body.email }, {}, null)) {
+                return res.status(409).send({message: "Użytkownik o podanym adresie e-mail już istnieje!"});
+            }
+        }
+        if (req.body.username) {
+            if (await User.findOne({ username: req.body.username }, {}, null)) {
+                return res.status(409).send({message: `Nazwa użytkownika ${req.body.username} jest zajęta`});
+            }
+        }
+    } catch (err) {
+        return res.status(500).send({ error: "Internal server error! userController/register() - checking for existing user"});
+    }
     const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -13,7 +27,7 @@ const register = async (req, res) => {
     newUser.password = bcrypt.hashSync(req.body.password, 10);
     try {
         await newUser.save()
-        res.status(200).send("User registered successfully!");
+        res.status(200).send({ message:"Zarejestrowano pomyślnie!"});
     } catch (err) {
         res.status(500).send({error: err, function: "userController.register"})
     }
@@ -60,11 +74,15 @@ const profile = async (req, res) => {
         return res.status(500).send({ error: "Internal server error! userController/profile()"});
     }
 };
+const checkIfExists = async (req, res) => {
+
+}
 
 module.exports = {
     register,
     login,
     logout,
     // loginRequired,
-    profile
+    profile,
+    checkIfExists
 }

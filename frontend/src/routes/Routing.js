@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
+import WelcomePage from "../pages/WelcomePage";
 import LoginForm from "../components/User/LoginForm";
 import RegisterForm from "../components/User/RegisterForm";
 import AddCarForm from "../components/Form/AddCarForm";
@@ -16,6 +17,8 @@ export const Routing = () => {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/" element={<WelcomePage/>}/>
+
                 <Route path="/login" element={<LoginForm/>}/>
                 <Route path="/register" element={<RegisterForm/>}/>
                 <Route path="/vGarage" element={<MainPage/>}/>

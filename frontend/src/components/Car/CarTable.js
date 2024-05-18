@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {deleteCar} from "../../api/services/Car";
 import {useData} from "../../contexts/DataContext";
 

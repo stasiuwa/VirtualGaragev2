@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import Navbar from "../components/Navbar";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {getCar} from "../api/services/Car";
 import CarDetails from "../components/Car/CarDetails";
 
 const CarDetailsPage = () => {
     const { carID } = useParams();
     const [car, setCar] = useState({
+        _id: carID,
         brand: '',
         model: '',
         car_year: '',
@@ -19,6 +20,7 @@ const CarDetailsPage = () => {
             try {
                 const response = await getCar(carID);
                 setCar(response.data);
+                console.log("fetchCar", response.data);
             } catch (error) {
                 console.error("Error fetching car data:", error);
             }
@@ -27,7 +29,6 @@ const CarDetailsPage = () => {
     }, [carID]);
 
     if (!car) return <h1>Ładowanie...</h1>;
-    const {brand, model, car_year, engine, mileage, posts} = car;
 
     return (
         <div>
@@ -38,10 +39,13 @@ const CarDetailsPage = () => {
             </div>
             <div>
                 <div>
+                    <h4>WPISY</h4>
                     <ul style={{ listStyleType: 'decimal' }}>
-                        {posts.map((item, index) => (
+                        {car.posts.map((item, index) => (
                             <li key={index}>
-                                Typ: {item.type}, Data: {item.date}, Przebieg: {item.mileage}, Szczegóły: {item.details}, Cena: {item.price}
+                                <Link to={`/vGarage/myCars/${carID}/posts/${item._id}`}>
+                                    {item.type} {item.date}
+                                </Link>
                             </li>
                         ))}
                     </ul>

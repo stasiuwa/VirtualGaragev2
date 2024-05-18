@@ -3,9 +3,8 @@ import InputField from './InputField';
 import {createCar} from "../../api/services/Car";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
-import {useNavigate} from "react-router-dom";
+import {validateCarForm} from "./validation";
 
-// TODO Poprawic formularz - dodac walidacje
 const AddCarForm = () => {
     const [formData, setFormData] = useState({
         brand: '',
@@ -14,19 +13,19 @@ const AddCarForm = () => {
         engine: '',
         mileage: ''
     });
+    const [formErrors, setFormErrors] = useState({})
     const data = useData();
-    const navigate = useNavigate();
-
-    const handleChange = e => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // walidacja
+        const validationResults = validateCarForm(formData);
+        if (Object.keys(validationResults).length > 0) {
+            setFormErrors(validationResults);
+            return
+        }
+
         //Logika po przesłaniu - redirect
         try {
             console.log(formData);
@@ -56,6 +55,31 @@ const AddCarForm = () => {
             });
         }
     };
+    const handleReset = () => {
+        setFormData({
+            brand: '',
+            model: '',
+            car_year: '',
+            engine: '',
+            mileage: ''
+        });
+        setFormErrors({})
+    }
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+        // Resetowanie błędu dla aktualizowanego pola
+        if (formErrors[name]) {
+            setFormErrors({
+                ...formErrors,
+                [name]: undefined
+            });
+        }
+    };
 
     return (
         <div>
@@ -63,7 +87,10 @@ const AddCarForm = () => {
                 DODAJ AUTO
             </h3>
             <Navbar/>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                onReset={handleReset}
+            >
                 <InputField
                     label="Marka"
                     type="text"
@@ -71,6 +98,7 @@ const AddCarForm = () => {
                     value={formData.brand}
                     onChange={handleChange}
                     placeholder="Wprowadź markę samochodu..."
+                    error={formErrors.brand}
                 />
                 <InputField
                     label="Model"
@@ -79,6 +107,7 @@ const AddCarForm = () => {
                     value={formData.model}
                     onChange={handleChange}
                     placeholder="Wprowadź model samochodu..."
+                    error={formErrors.model}
                 />
                 <InputField
                     label="Rok produkcji"
@@ -87,6 +116,7 @@ const AddCarForm = () => {
                     value={formData.car_year}
                     onChange={handleChange}
                     placeholder="Wprowadź rok produkcji samochodu..."
+                    error={formErrors.car_year}
                 />
                 <InputField
                     label="Silnik"
@@ -95,6 +125,7 @@ const AddCarForm = () => {
                     value={formData.engine}
                     onChange={handleChange}
                     placeholder="Wprowadź informacje o silniku samochodu..."
+                    error={formErrors.engine}
                 />
                 <InputField
                     label="Przebieg"
@@ -103,6 +134,7 @@ const AddCarForm = () => {
                     value={formData.mileage}
                     onChange={handleChange}
                     placeholder="Wprowadź przebieg samochodu..."
+                    error={formErrors.mileage}
                 />
                 <button type="reset">Wyczyść</button>
                 <button type="submit">Dodaj samochód</button>

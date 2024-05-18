@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 import {useNavigate, useParams} from "react-router-dom";
 import {useData} from "../contexts/DataContext";
 import {deletePost, getPost} from "../api/services/Post";
-import CarDetails from "../components/Car/CarDetails";
 import {getCar} from "../api/services/Car";
 
 const PostDetailsPage = () => {
@@ -23,11 +22,11 @@ const PostDetailsPage = () => {
                 setCar(responseCar.data);
             } catch (error) {
                 console.log(error.response ? error.response.data : error.message);
-                alert('Nie znaleziono wpisu!');
+                // alert('Nie znaleziono wpisu!');
             }
         }
         fetchPostData();
-    }, []);
+    }, [carID, postID]);
 
     const deleteButton = async () => {
         await deletePost(carID, postID);
@@ -40,7 +39,7 @@ const PostDetailsPage = () => {
     }
 
     if (!post) return <h1>Ładowanie...</h1>;
-    const { type, date, mileage, details, price } = post;
+
     return (
         <div>
             <h3>SZCZEGÓŁY O WPISIE</h3>

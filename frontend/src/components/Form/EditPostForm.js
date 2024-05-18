@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import InputField from "./InputField";
-import {createPost, getPost, updatePost} from "../../api/services/Post";
+import {getPost, updatePost} from "../../api/services/Post";
 import Navbar from "../Navbar";
 import {useData} from "../../contexts/DataContext";
 import {useNavigate, useParams} from "react-router-dom";
 import {getCar} from "../../api/services/Car";
+import {validatePostForm} from "./validation";
 
 const EditPostForm = () => {
     const { carID, postID} = useParams();
@@ -17,6 +18,7 @@ const EditPostForm = () => {
         details: '',
         price: ''
     });
+    const [formErrors, setFormErrors] = useState({})
     const data = useData();
     const navigate = useNavigate();
 
@@ -45,6 +47,13 @@ const EditPostForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // walidacja
+        const validationResults = validatePostForm(formData);
+        if (Object.keys(validationResults).length > 0) {
+            setFormErrors(validationResults);
+            return
+        }
+
         // logika po przesłaniu
         try {
             console.log(carID);
@@ -69,12 +78,31 @@ const EditPostForm = () => {
         }
     };
 
+    const handleReset = () => {
+        setFormData({
+            carID: carID,
+            type: '',
+            date: '',
+            mileage: '',
+            details: '',
+            price: ''
+        });
+        setFormErrors({})
+    }
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value
         });
+        // Resetowanie błędu dla aktualizowanego pola
+        if (formErrors[name]) {
+            setFormErrors({
+                ...formErrors,
+                [name]: undefined
+            });
+        }
     };
 
     return (
@@ -83,7 +111,10 @@ const EditPostForm = () => {
                 Edytuj wpis
             </h3>
             <Navbar/>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={handleSubmit}
+                onReset={handleReset}
+            >
                 <div className="form-group">
                     <label htmlFor="carID">Samochód</label>
                     <select
@@ -107,6 +138,7 @@ const EditPostForm = () => {
                     value={formData.type}
                     onChange={handleChange}
                     placeholder="Wprowadź typ wpisu..."
+                    error={formErrors.type}
                 />
                 <InputField
                     label="Data"
@@ -123,6 +155,7 @@ const EditPostForm = () => {
                     value={formData.mileage}
                     onChange={handleChange}
                     placeholder="Wprowadź przebieg..."
+                    error={formErrors.mileage}
                 />
                 <InputField
                     label="Szczegóły"
@@ -139,6 +172,7 @@ const EditPostForm = () => {
                     value={formData.price}
                     onChange={handleChange}
                     placeholder="Wprowadź cenę..."
+                    error={formErrors.price}
                 />
                 <button type="reset">Wyczyść</button>
                 <button type="submit">Edytuj wpis</button>

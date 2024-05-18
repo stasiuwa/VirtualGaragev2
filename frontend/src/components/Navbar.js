@@ -15,7 +15,7 @@ const Navbar = () => {
     const logout = async () => {
         try {
             await logoutUser();
-            navigate('/login');
+            navigate('/');
         } catch (error) {
             console.error('Error during logout:', error.response ? error.response.data : error.message);
         }

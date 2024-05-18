@@ -1,8 +1,8 @@
 import React from 'react';
 
-const InputField = ({ label, type, name, value, onChange, placeholder, inputRef }) => {
+const InputField = ({ label, type, name, value, onChange, placeholder, error }) => {
     return (
-        <div className="flex justify-between">
+        <div className="input-group">
             <label className="font-semibold capitalize">
                 {label}
             </label>
@@ -12,9 +12,9 @@ const InputField = ({ label, type, name, value, onChange, placeholder, inputRef 
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className="w-full p-2 my-2 border border-gray-300 rounded-md"
-                ref={inputRef}
+                className={`form-control ${error ? 'is-invalid' : ''}`}
             />
+            {error && <span className="text-danger">{error}</span>}
         </div>
     );
 };

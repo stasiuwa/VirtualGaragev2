@@ -7,14 +7,19 @@ const CarDetails = (props) => {
     const data = useData();
     const navigate = useNavigate();
 
+    console.log("CarDetails props: ", props.car);
+
+
     const deleteButton = async () => {
-        await deleteCar(props.car.carID);
+        console.log("deleteButton:",props.car._id);
+        await deleteCar(props.car._id);
         alert("Usunieto auto!");
         await data.loadData();
         navigate('/vGarage');
     }
-    const editButton = async () => {
-        navigate(`/vGarage/myCars/${props.car.carID}/editCar`);
+    const editButton = () => {
+        console.log("ediButton:" , props.car._id);
+        navigate(`/vGarage/myCars/${props.car._id}/editCar`);
     }
 
     return (
